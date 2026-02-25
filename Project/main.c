@@ -32,13 +32,20 @@ int main(void)
     //LED
     clear_leds();
     spi_comm_start();
-
+    void clear_leds(void);
+    void spi_comm_start(void);
+    
     //Motors
     motors_init();
 
     /* Infinite loop. */
     while (1)
     {
+     	    set_led(LED1, 0);
+        	set_led(LED3, 0);
+            set_led(LED5, 1);
+            set_led(LED7, 1);
+
     	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
     	{
     		set_front_led(2);
